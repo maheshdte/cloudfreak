@@ -1,11 +1,11 @@
 pipeline {
   agent any
     tools {
-      maven 'Maven'
+      maven 'maven'
                  jdk 'java1.8'
     }
     stages {      
-        stage('Build maven ') {
+        stage('Build maven') {
             steps { 
                     sh 'pwd'      
                     sh 'mvn  clean install package'
