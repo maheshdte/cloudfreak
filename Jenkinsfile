@@ -21,7 +21,8 @@ pipeline {
          
         stage('Build docker image') {
            steps {
-               script {         
+               script {
+		 def customImage = docker.build('maheshdte/petclinic', "./docker")
                  withCredentials([usernamePassword( credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                  docker.withRegistry('', 'dockerhub') {
                  sh "docker login -u ${USERNAME} -p ${PASSWORD}"
