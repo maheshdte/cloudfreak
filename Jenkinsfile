@@ -25,8 +25,7 @@ pipeline {
                  withCredentials([usernamePassword( credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                  docker.withRegistry('', 'dockerhub') {
                  sh "docker login -u ${USERNAME} -p ${PASSWORD}"
-                 myImage.push("${env.BUILD_NUMBER}")
-                 myImage.push("latest")
+                 customImage.push("${env.BUILD_NUMBER}")
 }
                  }                     
            }
